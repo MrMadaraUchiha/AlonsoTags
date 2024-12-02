@@ -1,262 +1,476 @@
-#          _   _                 _____               ___
-#         /_\ | |___ _ _  ___ __|_   _|_ _ __ _ ___ | _ \_ _ ___
-#        / _ \| / _ \ ' \(_-</ _ \| |/ _` / _` (_-< |  _/ '_/ _ \
-#       /_/ \_\_\___/_||_/__/\___/|_|\__,_\__, /__/ |_| |_| \___/
-#                                         |___/
-#                           por AlonsoAliaga
-#          https://www.spigotmc.org/resources/authors/281176/
-#Obrigado por comprar meu plugin! Se você não comprou então compre!
-#            Somente os compradores receberão suporte.
+#           _   _                 _____               ___                  Nossos plugins: https://alonsoaliaga.com/plugins
+#          /_\ | |___ _ _  ___ __|_   _|_ _ __ _ ___ | _ \_ _ ___          Servidor de suporte: https://alonsoaliaga.com/discord
+#         / _ \| / _ \ ' \(_-</ _ \| |/ _` / _` (_-< |  _/ '_/ _ \         Youtube: https://alonsoaliaga.com/play
+#        /_/ \_\_\___/_||_/__/\___/|_|\__,_\__, /__/ |_| |_| \___/         Servidor de testes: plugins.alonsoaliaga.com
+#                         by AlonsoAliaga  |___/                           Twitch: https://alonsoaliaga.com/twitch
+#          Gostaria de doar? https://alonsoaliaga.com/donate               Obrigado por comprar meu plugin! Apenas compradores recebem suporte!
+#  
+#                          >> Se o link do seu perfil do Spigot não for https://www.spigotmc.org/members/220900/
+#                considere comprar nosso plugin em https://alonsoaliaga.com/AlonsoTagsPro para apoiar nosso trabalho duro. <<
+#  ======================================================================================================================================
+#  |              Baixou este jar em um setup de servidor? Informe ao autor que ele NÃO tem permissão para fazer upload do trabalho de outra pessoa! |
+#  |   Atualize para a versão mais recente o mais rápido possível. Suporte NÃO será oferecido para versões antigas, especialmente baixadas de setups.  |
+#  | Lembre-se: Suporte só é oferecido para arquivos .jar baixados DIRETAMENTE do spigotmc.org! Outros arquivos serão considerados inválidos.         |
+#  |        pois NÃO são o mesmo arquivo .jar que o desenvolvedor (eu) enviou, e não posso garantir que o arquivo seja seguro ou não.               |
+#  |                   Se tiver problemas com configurações, diga ao autor do setup para atualizar o arquivo de configuração.                       |
+#  |                        Baixe o plugin original diretamente de https://alonsoaliaga.com/AlonsoTagsPro                                          |
+#  ======================================================================================================================================
 
 Messages:
-  No-permission: "&cVocê não tem permissão para fazer isso."
-  Reloaded: "&aAlgumas mensagens e opções foram recarregadas. Outras podem exigir uma reinicialização!"
-  Disabled-world: "&cVocê não pode usar este comando neste mundo. Tente mais tarde!"
-  Invalid-player: "&cPlayer não está online!"
-  Target-not-loaded: "&cO player de destino não pôde ser carregado. O player deve se reconectar ao servidor!"
-  Please-reconnect: "&cErro inesperado. Reconecte-se ao servidor!"
-  Error-purchasing: "&cErro inesperado ao comprar esta tag. Tente novamente mais tarde, se o problema persistir, entre em contato com um administrador."
-  Vault-not-available: "&cVault parece não estar disponível neste servidor :("
-  Dyeable: "&6Dyeable tag."
+  No-permission: '&6&lTAGS &8&l» &7Você não tem permissão para fazer isso. Por favor,
+    entre em contato com o administrador se acredita que isso é um erro.'
+  Reloaded: '&6&lTAGS &8&l» &7O AlonsoTags foi recarregado. Reiniciar o servidor
+    é necessário para que algumas funções funcionem completamente.'
+  Disabled-world: '&6&lTAGS &8&l» &7Você não pode usar este comando neste mundo.'
+  Invalid-player: '&6&lTAGS &8&l» &7O jogador não está online.'
+  Target-not-loaded: '&6&lTAGS &8&l» &7O alvo não pode ser carregado. Por favor, peça
+    para ele se reconectar.'
+  Please-reconnect: '&6&lTAGS &8&l» &7Ocorreu um erro inesperado, por favor, reconecte-se.'
+  Error-purchasing: '&6&lTAGS &8&l» &7Ocorreu um erro inesperado ao comprar esta tag,
+    tente novamente.'
   Help:
     Admin:
-    - "&4 /alonsotags open <player> &f- &cAbre a GUI de tags para o jogador"
-    - "&4 /alonsotags reload &f- &cRecarregar configuração (reiniciar recomendado)"
+    - '&8&l&m---------------&8&l[&4&lHyronic Tags&8&l]&8&l&m------------------'
+    - '&4◆ &cComandos &4◆'
+    - '&4► &4/tags:&c Abre a interface de tags'
+    - '&4► &4/tags reload:&c Recarrega a configuração'
+    - '&4► &4/tags open <player>:&c Abre a interface de tags para alguém'
+    - '&4► &4/tags help:&c Mostra o menu de ajuda'
+    - ''
+    - '&4◆ &cAjuda &4◆'
+    - '&4► &cPara qualquer ajuda, entre em contato com &4Hyronic Studio&c para configuração'
+    - '&cou &4AlonsoAliaga&c para ajuda com o plugin.'
+    - '&8&l&m---------------------------------------------'
     User:
-    - "&4 /alonsotags open &f- &cAbre a GUI de tags"
-  Colors:
-    Title: "&8Selecione uma cor"
+    - '&8&l&m---------------&8&l[&4&lHyronic Tags&8&l]&8&l&m------------------'
+    - '&4◆ &cComandos &4◆'
+    - '&4► &4/tags:&c Abre a interface de tags'
+    - '&4► &4/tags help:&c Mostra o menu de ajuda'
+    - ''
+    - '&4◆ &cAjuda &4◆'
+    - '&4► &cPara qualquer ajuda, entre em contato com o administrador ou moderador'
+    - '&8&l&m---------------------------------------------'
   Tags:
-    Title: "&8Tags disponíveis ({PAGE}/{MAX})"
-    Already-selected: "&aVocê já tem esta tag ativada!"
-    Tag-selected: "&aVocê selecionou {TAG}&uma tag!"
-    Tag-cleared: "&cVocê limpou sua tag atual."
-    Tag-not-selected: "&cVocê não tem nenhuma tag selecionada."
-    #Você pode usar alguns espaços reservados aqui:
-    # {PRICE} para substituir pelo preço da etiqueta
-    # {TAG} para substituir por tag (tag exibida)
-    # {TAG_NAME} para substituir pelo nome de exibição da tag (como o item)
-    Tag-purchased: "&aVocê comprou a tag &7{TAG_NAME}&a!"
-  Preview:
-    No-permission: "&cVocê não tem permissão para visualizar tags :("
-    No-permission-for-tag: "&cVocê não tem permissão para visualizar esta tag :("
-    #Usado somente se a opção Título estiver habilitada nas opções Premium para visualização.
-    #Espaços reservados disponíveis: {PLAYER} substituído pelo nome do jogador e {TAG} substituído pela visualização da tag.
-    #PlaceholderAPI está disponível aqui. Deixe "" vazio para não enviar.
-    Title: "&6&lVisualizar"
-    #Usado somente se a opção Título estiver habilitada nas opções Premium para visualização.
-    #Espaços reservados disponíveis: {PLAYER} substituído pelo nome do jogador e {TAG} substituído pela visualização da tag.
-    #PlaceholderAPI está disponível aqui. Deixe "" vazio para não enviar.
-    Subtitle: "{TAG} {PLAYER}"
-    #Usado somente se a opção Chat estiver habilitada nas opções Premium para visualização.
-    #Espaços reservados disponíveis: {PLAYER} substituído pelo nome do jogador e {TAG} substituído pela visualização da tag.
-    #PlaceholderAPI está disponível aqui. Deixe vazio [] para não enviar nada.
-    Chat:
-    - "&c&lVisualização da etiqueta:"
-    - "&f{TAG} {PLAYER}&f: &7Olá, este é um teste de como a tag ficaria!"
-    #Clique para visualizar a mensagem.
-    Right-click-to-preview: "&eClique com o botão direito do mouse para visualizar."
-  Placeholders:
-    #Isto é para %alonsotags_tag%
-    Tag:
-      None: "&7Nenhum"
-      Formato: "{TAG}"
-    #Isto é para %alonsotags_tag_chat%
-    Tag-chat:
-      #Caso você não queira exibir nada se o jogador não tiver uma tag selecionada.
-      None: ""
-      #Isto é caso você QUISER adicionar espaços extras para o seu plug-in de bate-papo, como:
-      #If tag selected => "[KNIGHT] AlonsoAliaga: Olá minha tag tem um espaço extra para corrigir melhor."
-      #If nenhuma tag selecionada => "AlonsoAliaga: Olá, não tenho uma tag selecionada."
-      Format: "{TAG} "
-    #Isto é para %alonsotags_tag_tab%
-    Tag-tab:
-      None: ""
-      Format: " {TAG}"
-    #Isto é para %alonsotags_tag_identifier%
-    Tag-identifier:
-      None: "Nenhum"
-      Format: "{TAG}"
-    #Isto é para %alonsotags_tag_scoreboard%
-    Tag-scoreboard:
-      None: "&7Nenhum"
-      #Isto é caso você QUISER adicionar espaços extras.
-      Format: "{TAG}"
+    Title: '&d◆&0        ɪɴᴛᴇʀꜰᴀᴄᴇ ᴅᴇ ᴛᴀɢꜱ &d        ◆'
+    Already-selected: '&6&lTAGS &8&l» &7Você já possui esta tag ativada.'
+    Tag-selected: '&6&lTAGS &8&l» &7Você selecionou {TAG}.'
+    Tag-cleared: '&6&lTAGS &8&l» &7Você limpou sua tag atual.'
+    Tag-not-selected: '&6&lTAGS &8&l» &7Você não tem nenhuma tag selecionada.'
+    Tag-purchased: '&6&lTAGS &8&l» &7Você comprou com sucesso a tag &6{TAG_NAME}&7!'
+Placeholders:
+  # Isso é para %alonsotags_tag%
+  Tag:
+    None: ''
+    Format: '{TAG}'
+  # Isso é para %alonsotags_tag_chat%
+  Tag-chat:
+    # Caso você não queira exibir nada se o jogador não tiver uma tag selecionada.
+    None: ''
+    # Caso você QUEIRA adicionar espaços extras para o seu plugin de chat, como:
+    # Se a tag estiver selecionada => "[KNIGHT] AlonsoAliaga: Olá, minha tag tem um espaço extra para se ajustar melhor."
+    # Se não houver tag selecionada => "AlonsoAliaga: Olá, eu não tenho uma tag selecionada."
+    Format: '{TAG} '
+  # Isso é para %alonsotags_tag_tab%
+  Tag-tab:
+    None: ''
+    Format: ' {TAG}'
+  # Isso é para %alonsotags_tag_identifier%
+  Tag-identifier:
+    None: ''
+    Format: '{TAG}'
+  # Isso é para %alonsotags_tag_scoreboard%
+  Tag-scoreboard:
+    None: ''
+    # Caso você QUEIRA adicionar espaços extras.
+    Format: '{TAG}'
+  Recognition-title:
+    None: '&7Nenhum'
+    Format: '{RECOGNITION-TITLE}'
+  Recognition-title-chat:
+    None: '&7Sem título'
+    Format: '{RECOGNITION-TITLE}'
+  Recognition-title-name-tag:
+    None: ''
+    Format: '{RECOGNITION-TITLE}'
+  Recognition-title-scoreboard:
+    None: '&7Nenhum'
+    Format: '{RECOGNITION-TITLE}'
+  Tag-description:
+    None: '&7Use &6/tags&7 para escolher uma!'
+    Format: '{DESCRIPTION}'
+Colors:
+  Title: '&8Selecione uma cor'
+Preview:
+  No-permission: '&cVocê não tem permissão para visualizar tags :('
+  No-permission-for-tag: '&cVocê não tem permissão para visualizar esta tag :('
+  Title: '&6&lVisualização'
+  Subtitle: '{TAG} {PLAYER}'
+  Chat:
+  - '&c&lPré-visualização da tag:'
+  - '&f{TAG} {PLAYER}&f: &7Olá, este é um teste de como a tag ficaria!'
+  Right-click-to-preview: '&eClique com o botão direito para visualizar.'
+Dyeable: '&6Tag tingível.'
+Filter:
+  No-permission: '&cVocê não pode filtrar por tags desbloqueadas. Compre o &a[RANK]&c
+    na &bstore.yournetwork.net&c!'
+Currency-not-available: '&6&lTAGS &8&l» &7Vault não está presente neste servidor.'
+Set:
+  Target-set-tag: '&6Tag atribuída com sucesso ao jogador {PLAYER}!'
+  Target-clear-tag: '&6Tag removida com sucesso do jogador {PLAYER}!'
+  Target-no-tag-selected: '&cO jogador {PLAYER} não selecionou uma tag!'
+  Invalid-tag: '&cTag inválida!'
+Data-is-loading: '&cSeus dados estão sendo carregados. Tente novamente em alguns segundos..'
+Tags-menu-no-permission: '&cVocê não tem permissão para acessar o menu de tags! :('
 
 Permissions:
-  Admin: "alonsotags.admin"
-  #Permissão para visualizar tags.
-  Preview: "nenhuma"
+  Admin: alonsotags.admin
+  Preview: none
+  Filter: none
+  Tags-menu: none
+  Forced-filter-bypass: alonsotags.forced-mode.bypass
 
 Items:
   Player:
-    Slot: 49
+    Slot: 4
+    Material: PLAYER
+    Custom-model-data: 0
     Active:
-      #Suporta PlaceholderAPI, se disponível.
-      Displayname: "&a{PLAYER}"
-      #Suporta PlaceholderAPI, se disponível.
+      Material: PLAYER
+      Displayname: '&a◆ ɪɴꜰᴏʀᴍᴀçõᴇꜱ ꜱᴏʙʀᴇ ᴛᴀɢꜱ ◆'
+      # Suporta PlaceholderAPI, se disponível.
       Lore:
-      - "&7Tag atual: &f{TAG}"
-      - " "
-      - "&eClique para limpar sua tag atual."
+      - ''
+      - '&a✎ &7Tags são sufixos exibidos'
+      - '&7com suas mensagens. Tags podem'
+      - '&7ser desbloqueadas participando de'
+      - '&7eventos, completando missões e'
+      - '&7comprando na loja.'
+      - ''
+      - '&e✎ &fTag atual: &a{TAG}'
+      - ''
+      - '&e⊳ Clique para remover a tag atual!'
+      Custom-model-data: 0
+      Texture: ewogICJ0aW1lc3RhbXAiIDogMTU5NDQ0NjkyMDI5NiwKICAicHJvZmlsZUlkIiA6ICJlMWMxYTE5NDdlODY0MTRmODZiYjQyZDgyYTIxY2ZiOCIsCiAgInByb2ZpbGVOYW1lIiA6ICJBbG9uc29BbGlhZ2EiLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTY4YWE3NGNjODg1NzgwNjBkMGZlM2JkOTA4YjM0ZjY5ZjEyZTA3ZjFmODljNWRkYzE1ZTZiZjYwZjA0Y2NjNiIKICAgIH0KICB9Cn0=
     Inactive:
-      #Suporta PlaceholderAPI, se disponível.
-      Displayname: "&c{PLAYER}"
-      #Suporta PlaceholderAPI, se disponível.
+      Material: PLAYER
+      Displayname: '&a◆ ɪɴꜰᴏʀᴍᴀçõᴇꜱ ꜱᴏʙʀᴇ ᴛᴀɢꜱ ◆'
       Lore:
-      - "&7Tag atual: &cNão selecionado"
+      - ''
+      - '&a✎ &7Tags são sufixos exibidos'
+      - '&7com suas mensagens. Tags podem'
+      - '&7ser desbloqueadas participando de'
+      - '&7eventos, completando missões e'
+      - '&7comprando na loja.'
+      - ''
+      - '&e✎ &fTag atual: &cNenhuma'
+      Custom-model-data: 0
+      Texture: ewogICJ0aW1lc3RhbXAiIDogMTU5NDQ0NjkyMDI5NiwKICAicHJvZmlsZUlkIiA6ICJlMWMxYTE5NDdlODY0MTRmODZiYjQyZDgyYTIxY2ZiOCIsCiAgInByb2ZpbGVOYW1lIiA6ICJBbG9uc29BbGlhZ2EiLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTY4YWE3NGNjODg1NzgwNjBkMGZlM2JkOTA4YjM0ZjY5ZjEyZTA3ZjFmODljNWRkYzE1ZTZiZjYwZjA0Y2NjNiIKICAgIH0KICB9Cn0=
+    Inactive:
+      Material: PLAYER
+      Displayname: '&a◆ ɪɴꜰᴏʀᴍᴀçõᴇꜱ ꜱᴏʙʀᴇ ᴀꜱ ᴛᴀɢꜱ ◆'
+      # Suporta PlaceholderAPI, se disponível.
+      Lore:
+      - ''
+      - '&a✎ &7Tags são sufixos que aparecem'
+      - '&7após suas mensagens. Tags podem'
+      - '&7ser desbloqueadas participando de'
+      - '&7eventos, completando missões e'
+      - '&7comprando-as na loja.'
+      - ''
+      - '&e✎ &fTag atual: &cNenhuma'
+      Custom-model-data: 0
+      Texture: ewogICJ0aW1lc3RhbXAiIDogMTU5NDQ0NjkyMDI5NiwKICAicHJvZmlsZUlkIiA6ICJlMWMxYTE5NDdlODY0MTRmODZiYjQyZDgyYTIxY2ZiOCIsCiAgInByb2ZpbGVOYW1lIiA6ICJBbG9uc29BbGlhZ2EiLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTY4YWE3NGNjODg1NzgwNjBkMGZlM2JkOTA4YjM0ZjY5ZjEyZTA3ZjFmODljNWRkYzE1ZTZiZjYwZjA0Y2NjNiIKICAgIH0KICB9Cn0=
   Previous-page:
     Slot: 45
-    Material: SETA
-    Hide-flags: true
+    Material: ARROW
     Custom-model-data: 0
-    Displayname: "&aPágina anterior"
+    Displayname: '&aPágina anterior'
     Lore:
-    - "&7Mover para a página anterior."
+    - '&7Mover para a página anterior.'
+    Hide-flags: true
+    Unbreakable: false
   Next-page:
     Slot: 53
-    Material: SETA
-    Hide-flags: true
+    Material: ARROW
     Custom-model-data: 0
-    Displayname: "&aPróxima página"
+    Displayname: '&aPróxima página'
     Lore:
-    - "&7Mover para a próxima página."
+    - '&7Mover para a próxima página.'
+    Hide-flags: true
+    Unbreakable: false
   Close:
-    Slot: 48
-    Material: BARREIRA
-    Hide-flags: true
+    Slot: 49
+    Material: BARRIER
     Custom-model-data: 0
-    Displayname: "&cFechar GUI"
+    Displayname: '&c● ꜰᴇᴄʜᴀʀ ɪɴᴛᴇʀꜰᴀᴄᴇ ●'
     Lore: []
+    # Configurado como "none" para desativar.
+    # Comando executado (pelo jogador) ao clicar no item de fechar.
+    # Placeholders disponíveis:
+    # {PLAYER} substituído pelo nome do jogador.
+    # {UUID} substituído pelo UUID do jogador.
+    # {WORLD} substituído pelo nome do mundo do jogador.
+    Command: none
+    Hide-flags: true
+    Unbreakable: false
+  Locked-tag-icon:
+    Enabled: false
+    # Suporta material CUSTOM_HEAD e requer "Texture" nesse caso.
+    Material: CUSTOM_HEAD
+    Custom-model-data: 0
+    Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDZiYTYzMzQ0ZjQ5ZGQxYzRmNTQ4OGU5MjZiZjNkOWUyYjI5OTE2YTZjNTBkNjEwYmI0MGE1MjczZGM4YzgyIn19fQ==
+    # Se ativado, o nome da tag será ofuscado com a cor "&4&k&l" (vermelho escuro, negrito, ofuscado)
+    # Na versão Pro, essa cor é personalizável.
+    Obfuscate:
+      Enabled: false
+      Color-displayname: '&4&k&l'
+      Color-tag-lore: '&4&k&l'
   Close-colors:
-    #Defina como -1 para desabilitar
     Slot: 44
-    Material: BARREIRA
-    Hide-flags: true
+    Material: BARRIER
     Custom-model-data: 0
-    Displayname: "&cFechar GUI"
+    Displayname: '&cFechar GUI'
     Lore: []
+    Hide-flags: true
+    Unbreakable: false
+    Command: none
   Back-to-tags:
-    #Defina como -1 para desabilitar
     Slot: 36
-    Material: SETA
-    Hide-flags: true
+    Material: ARROW
     Custom-model-data: 0
-    Displayname: "&9Voltar para tags"
+    Displayname: '&9Voltar para tags'
     Lore: []
-
+    Hide-flags: true
+    Unbreakable: false
+  Filter:
+    Slot: 50
+    All-tags:
+      Material: CUSTOM_HEAD
+      Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODVlNWJmMjU1ZDVkN2U1MjE0NzQzMTgwNTBhZDMwNGFiOTViMDFhNGFmMGJhZTE1ZTVjZDljMTk5M2FiY2M5OCJ9fX0=
+      Hide-flags: true
+      Custom-model-data: 0
+      Displayname: '&aTodas as tags'
+      Unbreakable: false
+      Lore:
+      - '&7Clique para exibir tags desbloqueadas.'
+    Unlocked-tags:
+      Material: CUSTOM_HEAD
+      Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2U5ZDQ5ZGQwOWVjZWUyYTQ5OTY5NjU1MTRkNmQzMDFiZjEyODcwYzY4OGFjYjU5OTliNjY1OGUxZGZkZmY4NSJ9fX0=
+      Hide-flags: true
+      Custom-model-data: 0
+      Displayname: '&9Tags desbloqueadas'
+      Unbreakable: false
+      Lore:
+      - '&7Clique para exibir todas as tags.'
 Options:
-  #Para aplicar as alterações de aliases você deve REINICIAR o servidor.
-  #Plugman ou plugins semelhantes NÃO são e NUNCA serão suportados.
-  #Use /reload ou reinicie seu servidor.
-  Main-command: "alonsotags"
+  # Para aplicar mudanças nos aliases, você deve REINICIAR o servidor.
   Aliases:
-  - "alonsotag"
-  - "atags"
-  - "tags"
-  - "atag"
-  - "tag"
-  Sub-commands:
-    Open:
-    - "open"
-    Reload:
-    - "reload"
-
+  - alonsotag
+  - atags
+  - tags
+  - atag
+  - tag
+  - hyronictag
+  - hyronictags
   Debug: false
-  #Esta opção adiciona a linha com o nome/versão/desenvolvedor do plugin no menu de ajuda.
-  #Por favor, deixe isso habilitado para apoiar meu trabalho :D
-  Support-developer: true
   Close-on-action:
-    #Fechar gui na seleção de tags?
-    Select: false
-    #Fechar gui na tag clear?
-    Clear: false
-    #Fechar gui na seleção de tags?
+    # Fechar o GUI ao selecionar uma tag?
+    Select: true
+    # Fechar o GUI ao limpar uma tag?
+    Clear: true
     Select-color: true
-    #Fechar gui na visualização da tag?
     Preview-tag: false
-    #Fechar gui na visualização de cores?
     Preview-color: false
   Tag:
-    #Use esta opção se você tiver problemas com outros plugins que substituem as tags adicionadas pelo AlonsoTags.
-    #Esta opção cria um atraso após a conexão do jogador para adicionar a tag. Defina como 0 para desabilitar.
-    #Tempo está em ticks. 20 tiques = 1 segundo. Se você quiser um atraso de 2 segundos, use 2 x 20 = 40.
+    # Use esta opção se você tiver problemas com outros plugins que sobrescrevem tags adicionadas pelo AlonsoTags.
+    # Esta opção cria um atraso após a conexão do jogador para adicionar a tag. Defina como 0 para desabilitar.
+    # O tempo está em ticks. 20 ticks = 1 segundo. Se você quiser um atraso de 2 segundos, use 2 x 20 = 40.
     Delay: 0
+    # Esta opção analisará placeholders da seção "Messages.Placeholders".
+    # ISSO NÃO INCLUI PLACEHOLDERS EM TAGS. Somente a versão Pro permite Placeholders em tags.
+    # Considere adquirir a versão Pro para apoiar nosso trabalho.
+    Parse-output: false
+    Parse-recognition-output: false
   Items:
-    #Se ativado, o item de fechamento será exibido no slot 48 (não personalizável devido aos recursos complexos que este plug-in oferece)
+    # Se ativado, o item de fechar será exibido no slot 48 (não personalizável devido às funcionalidades complexas deste plugin).
     Close: true
   Fill-empty-slots:
-    #Preencha todos os espaços vazios com vitrais pretos em tags gui?
+    # Preencher todos os slots vazios com vidro colorido preto?
     Enabled: true
-    #Usar dados de modelo personalizado? Use-o apenas SE NECESSÁRIO (Apenas 1.14+)
+    # Usar model data personalizado? Use apenas SE NECESSÁRIO (Apenas 1.14+).
     Custom-model-data: 0
-  Fill-colors-empty-slots:
-    #Preencha todos os espaços vazios com vitrais pretos nas cores gui?
-    Enabled: true
-    #Usar dados de modelo personalizado? Use-o apenas SE NECESSÁRIO (Apenas 1.14+)
-    Custom-model-data: 0
+    Slots: 0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,48,49,50,51,52,53
+    Color: BLACK
+    Unbreakable: false
   Hooks:
-    #Isso usará a API NameTagEdit, se disponível, para definir o sufixo do player. (SEU SUFIXO, NÃO PREFIXO)
-    Name-tag-edit: true
-  #Mundos permitidos nos quais os jogadores podem acessar "/alonsotags"
-  #Se você quiser habilitar o comando em todos os mundos. Apenas defina como Mundos permitidos: []
-  Allowed-worlds:
-  - "mundo"
-  - "salão"
-  - "mercado mundial"
+    # Isso usará a API do NameTagEdit, se disponível, para definir o sufixo do jogador. (É SUFIXO, NÃO PREFIXO)
+    # Recomendo usar TAB em vez disso. O NameTagEdit está desatualizado.
+    # O TAB precisa ser configurado.
+    Name-tag-edit: false
+  # Mundos permitidos nos quais os jogadores podem acessar "/alonsotags".
+  # Se quiser habilitar o comando em todos os mundos, defina Allowed-worlds: []
+  Allowed-worlds: []
   Compatibility:
-    #Recomendado se você estiver usando o EssentialsChat. Alguns dos meus plugins adicionam esse suporte.
-    #Certifique-se de habilitar SOMENTE se for necessário. Além disso, APENAS um é suficiente. Se você tiver esta opção habilitada em
-    #um dos meus plugins você pode desabilitar esta opção em todos os outros.
-    #Isso permite que você use qualquer espaço reservado da PlaceholderAPI, mas substituindo-o por colchetes em vez de sinais de porcentagem.
-    #Exemplo: %aplaceholder% => {aplaceholder}
-    #Isso inclui os que não são da AlonsoTags.
+    # Recomendado se você estiver usando EssentialsChat. Alguns dos meus plugins adicionam este suporte.
+    # Certifique-se de ativar SOMENTE se for necessário. Além disso, APENAS um é suficiente. Se você tiver esta opção ativada em
+    # um dos meus plugins, pode desativá-la em todos os outros.
+    # Isso permite que você use qualquer placeholder do PlaceholderAPI, mas substituindo por chaves em vez de sinais de porcentagem.
+    # Exemplo: %aplaceholder% => {aplaceholder}.
+    # Isso inclui aqueles que não são do AlonsoTags.
     Chat: false
-  #Este é apenas o nome da categoria.
+    Hex-color-fix: true
+  # Este é o número de ticks que o plugin aguardará antes de carregar os dados.
+  # Útil se você tiver problemas com jogadores "perdendo" seus dados ao trocar de servidor ou reconectar.
+  # Defina como 0 para desabilitar. Se ativado, é provável que alguns plugins que enviam mensagens ao entrar não exibam dados corretos nos placeholders.
+  # Para "corrigir" isso, use este plugin da nossa equipe, que adiciona mensagens ao entrar com uma opção para definir o atraso.
+  # Também suportamos verificações de placeholder para evitar enviar mensagens quando o jogador estiver no modo invisível.
+  # Confira nosso plugin em https://alonsoaliaga.com/AlonsoJoin (Se disponível).
+  Data-delay: 20
+  Auto-save:
+    # Tempo em minutos para salvar automaticamente os dados dos jogadores. Mínimo 0 (Se zero, será desativado). Recomendo 10 ou mais.
+    # Isso salvará os dados a cada X minutos para evitar perda de dados em caso de falha do servidor por qualquer motivo.
+    Interval: 15
+  Log-mode: true
   Premium:
     Color:
-      #Rows for Color GUI. Mínimo 1, máximo 6.
       Rows: 5
-      #Preview é uma opção que permite aos jogadores com permissão para visualizar a tag como legenda como visualização.
       Preview:
         Enabled: true
         Title: true
         Chat: true
-        #Se ativado, todos os jogadores podem visualizar todas as tags, ignorando as permissões de tag.
-        #Se false, os jogadores só podem visualizar as tags que eles também têm acesso (compradas se a tag for comprável)
-        Ignore-permission: true
+        Ignore-permission: false
+    Tags:
+      Slots: 10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43
+      Rows: 6
+    Hide-load-debug: false
+    Economy:
+      Warning:
+      - Tipos disponíveis são VAULT,LEVEL, MATERIAL e PLAYER_POINTS.
+      - 1) VAULT tentará se conectar ao plugin Vault.
+      - '   Se (plugin de economia) não estiver disponível, as compras serão desativadas.'
+      - '   Este é um recurso experimental. Por favor, reporte bugs na aba de discussões.'
+      - 2) LEVEL usará o nível do jogador (não a experiência).
+      - 3) MATERIAL exigirá o material especificado.
+      - '   Primeiro verificará a mão principal do jogador e, em seguida, o inventário.'
+      - 4) PLAYER_POINTS exigirá o plugin PlayerPoints para funcionar. Se o plugin não
+        for encontrado, as compras serão desativadas.
+      - '   Este recurso está em BETA. Pode não funcionar corretamente.'
+      - 5) TOKEN_MANAGER exigirá o plugin TokenManager para funcionar. Se o plugin não
+        for encontrado, as compras serão desativadas.
+      - '   Este recurso está em BETA. Pode não funcionar corretamente.'
+      - ' '
+      - ISTO NÃO É MAIS UTILIZADO! AGORA VOCÊ PODE PERSONALIZAR O SISTEMA DE ECONOMIA POR TAG!
+      Type: VAULT
+      Material: DIAMOND
+      Preferred-vault:
+      - AdicioneAquiSeuPluginDeEconomiaFavorito
+    Sounds:
+      Tags-menu:
+        Previous-page: CLICK_ON,1,1
+        Next-page: CLICK_ON,1,1
+        Close-tags: CLICK_OFF,1,1
+        Reset-tag-success: ITEM_BREAK,1,1
+        Reset-tag-fail: ANVIL_LAND,1,1
+        Unlocked-tags-mode-on: CLICK_ON,1,1
+        Unlocked-tags-mode-off: CLICK_OFF,1,1
+        Unlocked-tags-no-permission: ANVIL_LAND,1,1
+        Already-selected: CLICK_ON,1,1
+        Preview-no-permission: ANVIL_LAND,1,1
+        Tag-no-permission: ANVIL_LAND,1,1
+        Currency-not-available: ANVIL_LAND,1,1
+        Not-enough-money: ANVIL_LAND,1,1
+        Error-purchasing: ANVIL_LAND,1,1
+        Purchased: EXP_ORB,1,1
+        Open-to-select-color: CLICK_ON,1,1
+        Preview-no-permission-for-tag: ANVIL_LAND,1,1
+        Selected: EXP_ORB,1,1
+        Preview: CAT_MEOW,1,1
+      Colors-menu:
+        Back-to-tags: CLICK_ON,1,1
+        Color-no-permission: ANVIL_LAND,1,1
+        Selected: EXP_ORB,1,1
+        Close-colors: CLICK_ON,1,1
+    Filter:
+      Force-mode:
+        Enabled: false
+        Mode: UNLOCKED
+  Fill-colors-empty-slots:
+    Enabled: true
+    Custom-model-data: 0
+    Color: BLACK
+    Unbreakable: false
+  Support-developer: true
+  Main-command: alonsotags
+  Sub-commands:
+    Open:
+    - open
+    Reload:
+    - reload
+    Set:
+    - set
 
 Database:
-  #Tipos disponíveis: MySQL e SQLite
-  #Você pode usar o MySQL para torná-lo global ou você pode usar o SQLite para torná-lo local.
-  #MySQL requer um servidor (local ou externo)
-  #SQLite não requer nada, é salvo em um arquivo db na pasta.
-  Type: "SQLite"
-  Table: "alonsotags"
-  #Se o tipo for SQLite
-  File: "database-alonsotags"
-  #Se o tipo for MySQL
-  Host: 127.0.0.1
-  Porta: 3306
-  Database: "alonsotags"
-  Username: "root"
-  Password: "12345"
-  #Modifique isso apenas se você souber o que está fazendo.
-  #Isso será adicionado no final da url do banco de dados (não no SQLITE, apenas no MySQL).
-  #Útil se você deseja definir useSSL ou autoReconnect ou qualquer outro modificador.
-  Additional-url: ""
-  #Usado para manter a conexão ativa para evitar o tempo limite da conexão.
-  #Tempo em minutos. Recomendado 30. Mínimo 5.
+  # Tipos disponíveis: SQLite, MySQL, HikariCP e IwantMySQL
+  # Você pode usar MySQL para torná-lo global ou usar SQLite para torná-lo local.
+  # MySQL requer um servidor (local ou externo) e usa HikariCP <=========== POR PADRÃO, pois é mais rápido.
+  # SQLite não requer nada, é salvo em um arquivo db na pasta.
+  # CASO VOCÊ QUEIRA USAR MYSQL E NÃO HIKARICP, VOCÊ DEVE USAR
+  #      Type: "IWantMySQL"    <---- Sim, exatamente assim.
+  Type: MySQL
+  Table: alonsotags
+  # Se o tipo for SQLite
+  File: database-alonsotags
+  # Se o tipo for MySQL
+  Host: 166.0.189.71
+  Port: 3306
+  Database: s1_proxy
+  Username: u1_8g2RJ7g8Q0
+  Password: '!e8=aO0^ygZnigN54Q5+O5rS'
+  # Modifique isso apenas se você souber o que está fazendo.
+  # Isso será adicionado ao final da URL do banco de dados (não no SQLITE, apenas no MySQL).
+  # Útil se você quiser configurar useSSL ou autoReconnect ou qualquer outro modificador.
+  # Esta opção não é mais usada, pois HikariCP foi implementado. Use as opções "HikariCP.Source-properties".
+  # Use apenas se estiver usando "IWantMySQL"
+  Additional-url: ''
+  # Esta opção foi adicionada para evitar o tempo limite da conexão.
+  # O tempo está em minutos. A cada X minutos o plugin executará uma consulta de teste para manter a conexão ativa.
+  # Esta opção não é mais usada, pois HikariCP foi implementado.
+  # Use apenas se estiver usando "IWantMySQL"
   Keep-connection-interval: 30
+  HikariCP:
+    Warning:
+    - ========================================================================================
+    - Você não precisa editar este texto, ele é exibido SOMENTE no config para que você leia.
+    - ========================================================================================
+    - O HikariCP é experimental. Lembre-se de modificar o seguinte APENAS SE VOCÊ SOUBER
+      COMO FUNCIONA.
+    - Você não receberá suporte para configurações de HikariCP porque 1) Eu não sou um usuário avançado de HikariCP
+    - e 2) A personalização depende do proprietário e de seu nível de conhecimento.
+    - 'Relacionado às Source-properties, se você SOUBER e quiser adicionar propriedades personalizadas
+      siga o formato:'
+    - 'Source-properties:'
+    - '  thePropertySelected1: "theValue1"'
+    - '  thePropertySelected2: "theValue2"'
+    - '[!] Lembre-se de modificar os dados apenas se você souber o que está fazendo.'
+    - 'As propriedades disponíveis podem ser encontradas aqui: https://alonsoaliaga.com/HikariCP-sp'
+    - 'Os nomes das classes disponíveis podem ser encontrados aqui: https://alonsoaliaga.com/HikariCP-cn'
+    Max-pool-size: 3
+    # Configure o nome da classe de origem personalizada APENAS SE VOCÊ SOUBER O QUE É.
+    Custom-source-class-name: default
+    # Estas são as propriedades de origem para modificar suas configurações do HikariCP.
+    # Permite selecionar e especificar configurações personalizadas SE VOCÊ SOUBER O QUE ESTÁ FAZENDO.
+    # As propriedades de origem podem ser encontradas aqui: https://alonsoaliaga.com/HikariCP-sp
+    Source-properties: []
 
 Updates:
-   #Configuração de atualização automática? A ativação excluirá comentários.
-   Auto-update-configuration: true
-   #Verificar atualizações? Recomendado para mantê-lo ativado.
-   Check-updates: true
-   #Notificar atualizações quando um jogador com permissão entra no servidor?
-   Notify-updates: true
-   #Permissão necessária para receber mensagem de atualização.
-   Permission: "alonsotags.update"
-   #Mensagem para enviar quando a atualização for encontrada.
-   Message: "&4[BetterTags] &eUma nova atualização foi encontrada! Você está usando a versão {CURRENT}. Baixe a versão {NEW} aqui &c{LINK}"
+  # Atualizar automaticamente a configuração? Ativar isso excluirá comentários.
+  Auto-update-configuration: true
+  # Verificar atualizações? Recomendado manter ativado.
+  Check-updates: true
+  # Notificar atualizações quando um jogador com permissão entrar no servidor?
+  Notify-updates: true
+  # Permissão necessária para receber a mensagem de atualização.
+  Permission: alonsotags.update
+  # Mensagem para enviar quando uma atualização for encontrada.
+  Message: '&6&lTAGS &8&l» &7Uma nova atualização foi encontrada! Você está usando a versão &e{CURRENT}&7.
+    Baixe a versão &e{NEW}&7 aqui: &c{LINK}'
